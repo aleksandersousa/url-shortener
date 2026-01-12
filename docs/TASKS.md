@@ -8,7 +8,7 @@
 - [x] docker-compose
 - [x] Configuração de env vars
 - [x] Logger estruturado
-- [ ] Middleware de requestId
+- [x] Middleware de requestId
 - [ ] Global Exception Filter
 
 ### Banco de Dados

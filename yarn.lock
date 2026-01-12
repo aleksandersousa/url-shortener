@@ -385,6 +385,21 @@
   resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@tokenizer/token/-/token-0.3.0.tgz#fe98a93fe789247e998c75e74e9c7c63217aa276"
   integrity sha1-/pipP+eJJH6ZjHXnTpx8YyF6onY=
 
+"@types/body-parser@*":
+  version "1.19.6"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/body-parser/-/body-parser-1.19.6.tgz#1859bebb8fd7dac9918a45d54c1971ab8b5af474"
+  integrity sha1-GFm+u4/X2smRikXVTBlxq4ta9HQ=
+  dependencies:
+    "@types/connect" "*"
+    "@types/node" "*"
+
+"@types/connect@*":
+  version "3.4.38"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/connect/-/connect-3.4.38.tgz#5ba7f3bc4fbbdeaff8dded952e5ff2cc53f8d858"
+  integrity sha1-W6fzvE+73q/43e2VLl/yzFP42Fg=
+  dependencies:
+    "@types/node" "*"
+
 "@types/eslint-scope@^3.7.7":
   version "3.7.7"
   resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/eslint-scope/-/eslint-scope-3.7.7.tgz#3108bd5f18b0cdb277c867b3dd449c9ed7079ac5"
@@ -406,6 +421,30 @@
   resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/estree/-/estree-1.0.8.tgz#958b91c991b1867ced318bedea0e215ee050726e"
   integrity sha1-lYuRyZGxhnztMYvt6g4hXuBQcm4=
 
+"@types/express-serve-static-core@^5.0.0":
+  version "5.1.1"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/express-serve-static-core/-/express-serve-static-core-5.1.1.tgz#1a77faffee9572d39124933259be2523837d7eaa"
+  integrity sha1-Gnf6/+6VctORJJMyWb4lI4N9fqo=
+  dependencies:
+    "@types/node" "*"
+    "@types/qs" "*"
+    "@types/range-parser" "*"
+    "@types/send" "*"
+
+"@types/express@^5.0.6":
+  version "5.0.6"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/express/-/express-5.0.6.tgz#2d724b2c990dcb8c8444063f3580a903f6d500cc"
+  integrity sha1-LXJLLJkNy4yERAY/NYCpA/bVAMw=
+  dependencies:
+    "@types/body-parser" "*"
+    "@types/express-serve-static-core" "^5.0.0"
+    "@types/serve-static" "^2"
+
+"@types/http-errors@*":
+  version "2.0.5"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/http-errors/-/http-errors-2.0.5.tgz#5b749ab2b16ba113423feb1a64a95dcd30398472"
+  integrity sha1-W3SasrFroRNCP+saZKldzTA5hHI=
+
 "@types/json-schema@*", "@types/json-schema@^7.0.15", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.15"
   resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/json-schema/-/json-schema-7.0.15.tgz#596a1747233694d50f6ad8a7869fcb6f56cf5841"
@@ -417,6 +456,31 @@
   integrity sha1-XKPEbysla1kSj0M0JuQtRkdl2rE=
   dependencies:
     undici-types "~7.16.0"
+
+"@types/qs@*":
+  version "6.14.0"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/qs/-/qs-6.14.0.tgz#d8b60cecf62f2db0fb68e5e006077b9178b85de5"
+  integrity sha1-2LYM7PYvLbD7aOXgBgd7kXi4XeU=
+
+"@types/range-parser@*":
+  version "1.2.7"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/range-parser/-/range-parser-1.2.7.tgz#50ae4353eaaddc04044279812f52c8c65857dbcb"
+  integrity sha1-UK5DU+qt3AQEQnmBL1LIxlhX28s=
+
+"@types/send@*":
+  version "1.2.1"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/send/-/send-1.2.1.tgz#6a784e45543c18c774c049bff6d3dbaf045c9c74"
+  integrity sha1-anhORVQ8GMd0wEm/9tPbrwRcnHQ=
+  dependencies:
+    "@types/node" "*"
+
+"@types/serve-static@^2":
+  version "2.2.0"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@types/serve-static/-/serve-static-2.2.0.tgz#d4a447503ead0d1671132d1ab6bd58b805d8de6a"
+  integrity sha1-1KRHUD6tDRZxEy0atr1YuAXY3mo=
+  dependencies:
+    "@types/http-errors" "*"
+    "@types/node" "*"
 
 "@webassemblyjs/ast@1.14.1", "@webassemblyjs/ast@^1.14.1":
   version "1.14.1"
