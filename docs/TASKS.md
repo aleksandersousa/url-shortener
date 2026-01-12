@@ -9,7 +9,7 @@
 - [x] Configuração de env vars
 - [x] Logger estruturado
 - [x] Middleware de requestId
-- [ ] Global Exception Filter
+- [x] Global Exception Filter
 
 ### Banco de Dados
 
