@@ -13,7 +13,7 @@
 
 ### Banco de Dados
 
-- [ ] Configuração de conexão PostgreSQL (TypeORM ou pg)
+- [x] Configuração de conexão PostgreSQL (TypeORM ou pg)
 - [ ] Criação do schema (migration ou SQL script)
 - [ ] Validação de variáveis de ambiente no startup
 

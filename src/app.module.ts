@@ -3,9 +3,10 @@ import { LoggerModule } from "./common/logger/logger.module";
 import { MiddlewareModule } from "./common/middleware/middleware.module";
 import { RequestIdMiddleware } from "./common/middleware/request-id.middleware";
 import { FiltersModule } from "./common/filters/filters.module";
+import { DatabaseModule } from "./common/database/database.module";
 
 @Module({
-  imports: [LoggerModule, MiddlewareModule, FiltersModule],
+  imports: [LoggerModule, MiddlewareModule, FiltersModule, DatabaseModule],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
