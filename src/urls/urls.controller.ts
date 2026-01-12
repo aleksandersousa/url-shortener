@@ -19,6 +19,7 @@ import {
 import { UrlsService } from "./urls.service";
 import { CreateShortUrlDto } from "./dto/create-short-url.dto";
 import { ShortUrlResponseDto } from "./dto/short-url-response.dto";
+import { GetShortUrlParamsDto } from "./dto/get-short-url-params.dto";
 
 @ApiTags("URLs")
 @Controller()
@@ -69,10 +70,11 @@ export class UrlsController {
     description: "Internal server error",
   })
   async redirect(
-    @Param("code") code: string,
+    @Param() params: GetShortUrlParamsDto,
     @Res() res: Response,
     @Req() req: Request
   ): Promise<void> {
+    const { code } = params;
     const requestId = (req as any).requestId;
     const originalUrl = await this.urlsService.getOriginalUrl(code, requestId);
     await this.urlsService.incrementAccessCount(code, requestId);

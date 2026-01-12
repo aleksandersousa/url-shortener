@@ -40,5 +40,5 @@
 
 ### Finalização
 
-- [ ] Validação de todos os endpoints
+- [x] Validação de todos os endpoints
 - [ ] Testes manuais básicos
