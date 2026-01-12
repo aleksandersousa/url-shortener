@@ -35,8 +35,8 @@
 
 ### Health Check
 
-- [ ] Health Controller
-- [ ] GET /health
+- [x] Health Controller
+- [x] GET /health
 
 ### Finalização
 
