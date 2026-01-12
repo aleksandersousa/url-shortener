@@ -22,7 +22,7 @@
 
 - [x] DTOs (CreateShortUrlDto, ShortUrlResponseDto)
 - [x] Entidade Url
-- [ ] Utility: Validação de URL
+- [x] Utility: Validação de URL
 - [ ] Utility: Geração de código (com retry e colisão)
 - [ ] Repository (acesso ao banco de dados)
 - [ ] Service (regras de negócio)
