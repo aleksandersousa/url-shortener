@@ -29,9 +29,9 @@
 
 ### Módulo Urls - Camada de API
 
-- [ ] Controller
-- [ ] POST /shorten
-- [ ] GET /:code (redirecionamento)
+- [x] Controller
+- [x] POST /shorten
+- [x] GET /:code (redirecionamento)
 
 ### Health Check
 
