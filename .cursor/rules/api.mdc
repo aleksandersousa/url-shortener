@@ -48,3 +48,10 @@ globs: ["**/*.controller.ts", "**/*.dto.ts"]
 - Use NestJS validation pipes for DTOs
 - Return standardized error format on validation failure
 - Include requestId in all responses
+
+## API Documentation
+
+- Swagger/OpenAPI documentation available at `/api` endpoint
+- Use `@nestjs/swagger` decorators on DTOs and controllers
+- DTOs should be classes (not interfaces) for Swagger schema generation
+- Document all endpoints, request/response schemas, and error responses

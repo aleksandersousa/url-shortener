@@ -2,7 +2,7 @@
 
 ## Base URL
 
-All endpoints are relative to the base URL. In development: `http://localhost:3000`
+All endpoints are relative to the base URL. In development: `http://localhost:5000`
 
 ---
 
@@ -196,6 +196,16 @@ All error responses follow this structure:
 **Location:**
 
 - Redirect responses: Contains the original URL
+
+---
+
+## API Documentation
+
+Interactive API documentation is available via Swagger/OpenAPI:
+
+- **Development:** `http://localhost:5000/api`
+- Swagger UI provides interactive testing and endpoint documentation
+- All endpoints, request/response schemas, and error formats are documented
 
 ---
 

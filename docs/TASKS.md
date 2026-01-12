@@ -10,6 +10,7 @@
 - [x] Logger estruturado
 - [x] Middleware de requestId
 - [x] Global Exception Filter
+- [x] Swagger/OpenAPI documentation
 
 ### Banco de Dados
 
