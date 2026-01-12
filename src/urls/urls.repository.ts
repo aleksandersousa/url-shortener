@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { DatabaseService } from "../common/database/database.service";
 import { LoggerService } from "../common/logger/logger.service";
 import { Url } from "./url.entity";
+import { SCHEMA_NAMES, TABLE_NAMES } from "src/common/database/tableNames";
 
 @Injectable()
 export class UrlsRepository {
@@ -14,7 +15,7 @@ export class UrlsRepository {
     const pool = this.databaseService.getPool();
     try {
       const result = await pool.query(
-        "SELECT id, code, original_url, access_count, created_at FROM urls WHERE code = $1",
+        `SELECT id, code, original_url, access_count, created_at FROM ${SCHEMA_NAMES.URL_SHORTENER}.${TABLE_NAMES.URLS} WHERE code = $1`,
         [code]
       );
 
@@ -38,7 +39,7 @@ export class UrlsRepository {
     const pool = this.databaseService.getPool();
     try {
       const result = await pool.query(
-        "SELECT COUNT(*) as count FROM urls WHERE code = $1",
+        `SELECT COUNT(*) as count FROM ${SCHEMA_NAMES.URL_SHORTENER}.${TABLE_NAMES.URLS} WHERE code = $1`,
         [code]
       );
 
@@ -58,7 +59,7 @@ export class UrlsRepository {
     const pool = this.databaseService.getPool();
     try {
       const result = await pool.query(
-        "INSERT INTO urls (code, original_url) VALUES ($1, $2) RETURNING id, code, original_url, access_count, created_at",
+        `INSERT INTO ${SCHEMA_NAMES.URL_SHORTENER}.${TABLE_NAMES.URLS} (code, original_url) VALUES ($1, $2) RETURNING id, code, original_url, access_count, created_at`,
         [code, originalUrl]
       );
 
@@ -79,7 +80,7 @@ export class UrlsRepository {
     const pool = this.databaseService.getPool();
     try {
       await pool.query(
-        "UPDATE urls SET access_count = access_count + 1 WHERE code = $1",
+        `UPDATE ${SCHEMA_NAMES.URL_SHORTENER}.${TABLE_NAMES.URLS} SET access_count = access_count + 1 WHERE code = $1`,
         [code]
       );
     } catch (error) {
