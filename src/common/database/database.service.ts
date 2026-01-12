@@ -1,4 +1,5 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
 import { Pool, PoolClient } from "pg";
 import { LoggerService } from "../logger/logger.service";
 
@@ -6,19 +7,13 @@ import { LoggerService } from "../logger/logger.service";
 export class DatabaseService implements OnModuleInit, OnModuleDestroy {
   private pool: Pool | null = null;
 
-  constructor(private readonly logger: LoggerService) {}
+  constructor(
+    private readonly logger: LoggerService,
+    private readonly configService: ConfigService
+  ) {}
 
   onModuleInit() {
-    const databaseUrl = process.env.DATABASE_URL;
-
-    if (!databaseUrl) {
-      this.logger.error(
-        "DATABASE_URL environment variable is required",
-        undefined,
-        { error: "Missing DATABASE_URL" }
-      );
-      throw new Error("DATABASE_URL environment variable is required");
-    }
+    const databaseUrl = this.configService.getOrThrow<string>("DATABASE_URL");
 
     try {
       this.pool = new Pool({

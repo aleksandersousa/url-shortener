@@ -51,9 +51,11 @@ globs: ["**/*.ts"]
 ## Configuration
 
 - Environment variables only (no hardcoded values)
+- Use `@nestjs/config` module (`ConfigService`) to access environment variables
 - Required: `DATABASE_URL`, `SHORT_URL_BASE`
 - Optional: `PORT` (3000), `CODE_LENGTH` (6), `NODE_ENV`, `LOG_LEVEL`
-- Validate on startup, fail fast if missing
+- Validate on startup via `ConfigValidatorService`, fail fast if missing
+- Inject `ConfigService` in services, use `getOrThrow()` for required vars
 
 ## Code Style
 

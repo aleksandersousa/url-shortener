@@ -3,6 +3,7 @@ import {
   BadRequestException,
   NotFoundException,
 } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
 import { UrlsRepository } from "./urls.repository";
 import { LoggerService } from "../common/logger/logger.service";
 import { isValidUrl } from "./url-validation.util";
@@ -14,7 +15,8 @@ import { ShortUrlResponseDto } from "./dto/short-url-response.dto";
 export class UrlsService {
   constructor(
     private readonly urlsRepository: UrlsRepository,
-    private readonly logger: LoggerService
+    private readonly logger: LoggerService,
+    private readonly configService: ConfigService
   ) {}
 
   async createShortUrl(
@@ -37,15 +39,8 @@ export class UrlsService {
 
     const urlEntity = await this.urlsRepository.create(code, url);
 
-    const shortUrlBase = process.env.SHORT_URL_BASE;
-    if (!shortUrlBase) {
-      this.logger.error(
-        "SHORT_URL_BASE environment variable is not set",
-        requestId
-      );
-      throw new Error("Configuration error: SHORT_URL_BASE is required");
-    }
-
+    const shortUrlBase =
+      this.configService.getOrThrow<string>("SHORT_URL_BASE");
     const shortUrl = `${shortUrlBase}/${code}`;
 
     this.logger.info("Short URL created successfully", requestId, {

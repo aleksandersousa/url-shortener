@@ -336,6 +336,15 @@
     load-esm "1.0.3"
     tslib "2.8.1"
 
+"@nestjs/config@^4.0.2":
+  version "4.0.2"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@nestjs/config/-/config-4.0.2.tgz#a2777a1fd2d0d594bab3953f50fbca95c14cce52"
+  integrity sha1-ond6H9LQ1ZS6s5U/UPvKlcFMzlI=
+  dependencies:
+    dotenv "16.4.7"
+    dotenv-expand "12.0.1"
+    lodash "4.17.21"
+
 "@nestjs/core@^11.1.11":
   version "11.1.11"
   resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/@nestjs/core/-/core-11.1.11.tgz"
@@ -1051,6 +1060,23 @@ depd@^2.0.0, depd@~2.0.0:
   version "2.0.0"
   resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/depd/-/depd-2.0.0.tgz"
   integrity sha1-tpYWPMdXVg0JzyLMj60Vcbeedt8=
+
+dotenv-expand@12.0.1:
+  version "12.0.1"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/dotenv-expand/-/dotenv-expand-12.0.1.tgz#44bdfa204a368100689ec35d7385755f599ceeb1"
+  integrity sha1-RL36IEo2gQBonsNdc4V1X1mc7rE=
+  dependencies:
+    dotenv "^16.4.5"
+
+dotenv@16.4.7:
+  version "16.4.7"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/dotenv/-/dotenv-16.4.7.tgz#0e20c5b82950140aa99be360a8a5f52335f53c26"
+  integrity sha1-DiDFuClQFAqpm+NgqKX1IzX1PCY=
+
+dotenv@^16.4.5:
+  version "16.6.1"
+  resolved "https://pkgs.dev.azure.com/teamsoftbr/_packaging/Packages/npm/registry/dotenv/-/dotenv-16.6.1.tgz#773f0e69527a8315c7285d5ee73c4459d20a8020"
+  integrity sha1-dz8OaVJ6gxXHKF1e5zxEWdIKgCA=
 
 dunder-proto@^1.0.1:
   version "1.0.1"

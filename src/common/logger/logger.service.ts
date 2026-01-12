@@ -1,3 +1,6 @@
+import { Injectable } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+
 type LogLevel = "debug" | "info" | "warn" | "error";
 
 interface LogEntry {
@@ -8,6 +11,7 @@ interface LogEntry {
   context?: Record<string, unknown>;
 }
 
+@Injectable()
 export class LoggerService {
   private readonly logLevel: LogLevel;
   private readonly levelPriority: Record<LogLevel, number> = {
@@ -17,9 +21,9 @@ export class LoggerService {
     error: 3,
   };
 
-  constructor() {
+  constructor(private readonly configService: ConfigService) {
     const envLogLevel = (
-      process.env.LOG_LEVEL || "info"
+      this.configService.get<string>("LOG_LEVEL") || "info"
     ).toLowerCase() as LogLevel;
     this.logLevel = this.isValidLogLevel(envLogLevel) ? envLogLevel : "info";
   }

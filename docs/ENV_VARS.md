@@ -190,16 +190,18 @@ LOG_LEVEL=info
 
 **NestJS Configuration:**
 
-- Use `@nestjs/config` module (if added)
-- Or use `process.env` directly
-- Load from `.env` file in development
-- Load from environment in production
+- Uses `@nestjs/config` module for environment variable management
+- Automatically loads `.env` file in development
+- Loads from environment variables in production
+- Global configuration module available throughout the application
+- Validation occurs on application startup via `ConfigValidatorService`
 
 **Validation:**
 
 - Validate required variables on application startup
 - Fail fast if required variables are missing
 - Log warnings for missing optional variables with defaults
+- Uses `ConfigService.getOrThrow()` for required variables
 
 ---
 

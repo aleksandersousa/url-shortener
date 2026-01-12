@@ -1,4 +1,14 @@
-export class ConfigValidatorService {
+import { Injectable, OnModuleInit } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+
+@Injectable()
+export class ConfigValidatorService implements OnModuleInit {
+  constructor(private readonly configService: ConfigService) {}
+
+  onModuleInit() {
+    this.validate();
+  }
+
   validate(): void {
     const errors: string[] = [];
     const warnings: string[] = [];
@@ -22,7 +32,7 @@ export class ConfigValidatorService {
   }
 
   private validateRequired(errors: string[]): void {
-    const databaseUrl = process.env.DATABASE_URL;
+    const databaseUrl = this.configService.get<string>("DATABASE_URL");
     if (!databaseUrl) {
       errors.push("DATABASE_URL is required");
     } else if (!this.isValidPostgresUrl(databaseUrl)) {
@@ -31,7 +41,7 @@ export class ConfigValidatorService {
       );
     }
 
-    const shortUrlBase = process.env.SHORT_URL_BASE;
+    const shortUrlBase = this.configService.get<string>("SHORT_URL_BASE");
     if (!shortUrlBase) {
       errors.push("SHORT_URL_BASE is required");
     } else if (!this.isValidUrl(shortUrlBase)) {
@@ -42,7 +52,7 @@ export class ConfigValidatorService {
   }
 
   private validateOptional(warnings: string[]): void {
-    const port = process.env.PORT;
+    const port = this.configService.get<string>("PORT");
     if (port !== undefined) {
       const portNum = parseInt(port, 10);
       if (isNaN(portNum) || portNum < 1 || portNum > 65535) {
@@ -52,7 +62,7 @@ export class ConfigValidatorService {
       }
     }
 
-    const codeLength = process.env.CODE_LENGTH;
+    const codeLength = this.configService.get<string>("CODE_LENGTH");
     if (codeLength !== undefined) {
       const codeLengthNum = parseInt(codeLength, 10);
       if (isNaN(codeLengthNum) || codeLengthNum < 1) {
@@ -66,7 +76,7 @@ export class ConfigValidatorService {
       }
     }
 
-    const logLevel = process.env.LOG_LEVEL;
+    const logLevel = this.configService.get<string>("LOG_LEVEL");
     if (logLevel !== undefined) {
       const validLogLevels = ["debug", "info", "warn", "error"];
       if (!validLogLevels.includes(logLevel.toLowerCase())) {
@@ -78,7 +88,7 @@ export class ConfigValidatorService {
       }
     }
 
-    const nodeEnv = process.env.NODE_ENV;
+    const nodeEnv = this.configService.get<string>("NODE_ENV");
     if (nodeEnv !== undefined) {
       const validNodeEnvs = ["development", "production"];
       if (!validNodeEnvs.includes(nodeEnv.toLowerCase())) {

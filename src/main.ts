@@ -1,15 +1,15 @@
 import { NestFactory } from "@nestjs/core";
 import type { NestExpressApplication } from "@nestjs/platform-express";
-import { ValidationPipe } from "@nestjs/common";
+import { ValidationPipe, Logger } from "@nestjs/common";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
+import { ConfigService } from "@nestjs/config";
 import { AppModule } from "./app.module";
-import { ConfigValidatorService } from "./common/config/config-validator.service";
 
 async function bootstrap() {
-  const configValidator = new ConfigValidatorService();
-  configValidator.validate();
-
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  const configService = app.get(ConfigService);
+  const logger = new Logger("Bootstrap");
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -25,8 +25,15 @@ async function bootstrap() {
     .setVersion("1.0")
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup("api", app, document);
+  SwaggerModule.setup("docs", app, document);
 
-  await app.listen(process.env.PORT || 3000);
+  const port = configService.get<number>("PORT", 3000);
+  await app.listen(port);
+
+  const appUrl = `http://localhost:${port}`;
+  const docsUrl = `${appUrl}/docs`;
+
+  logger.log(`Application is running on: ${appUrl}`);
+  logger.log(`Swagger documentation is available at: ${docsUrl}`);
 }
 bootstrap();

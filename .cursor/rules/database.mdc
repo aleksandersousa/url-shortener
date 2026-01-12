@@ -31,3 +31,5 @@ globs: ["**/*.repository.ts"]
 
 - Environment variable: `DATABASE_URL`
 - Format: `postgresql://username:password@host:port/database`
+- Access via `ConfigService` from `@nestjs/config` module
+- Use `configService.getOrThrow<string>("DATABASE_URL")` for type-safe access
