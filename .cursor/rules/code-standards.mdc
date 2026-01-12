@@ -1,0 +1,64 @@
+---
+description: Coding standards, architecture patterns, and logging
+globs: ["**/*.ts"]
+---
+
+# Code Standards
+
+## Naming
+
+- **Files:** kebab-case (`urls.controller.ts`)
+- **Classes:** PascalCase (`UrlsController`)
+- **Variables/Functions:** camelCase (`originalUrl`)
+- **Constants:** UPPER_SNAKE_CASE (`MAX_RETRY_ATTEMPTS`)
+- **Database:** snake_case (`original_url`)
+
+## Architecture Layers
+
+### Controllers
+
+- Receive HTTP requests, return responses
+- Delegate to services, use DTOs
+- No business logic, no try/catch, no direct logging
+
+### Services
+
+- Business logic and domain rules
+- Throw domain exceptions, log business events
+- No HTTP handling, no direct database access
+
+### Repositories
+
+- Database access only
+- Log only technical errors
+- Return domain entities, not raw rows
+
+## Error Handling
+
+- Global Exception Filter only (no try/catch in controllers)
+- Domain exceptions extend `HttpException`
+- Error format: `{ statusCode, message, error, requestId }`
+- Stack traces only in development logs, never expose to client
+
+## Logging
+
+- Structured JSON to stdout/stderr
+- Never use `console.log`/`console.error`
+- Required fields: `timestamp` (ISO 8601), `level`, `requestId`, `message`, `context` (optional)
+- Levels: debug, info, warn, error
+- Services: log business events | Repositories: log only technical errors
+
+## Configuration
+
+- Environment variables only (no hardcoded values)
+- Required: `DATABASE_URL`, `SHORT_URL_BASE`
+- Optional: `PORT` (3000), `CODE_LENGTH` (6), `NODE_ENV`, `LOG_LEVEL`
+- Validate on startup, fail fast if missing
+
+## Code Style
+
+- TypeScript strict mode
+- Follow NestJS conventions
+- One class per file
+- Use interfaces for DTOs
+- Prefer composition over inheritance

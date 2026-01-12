@@ -1,0 +1,34 @@
+---
+description: Short code generation algorithm and collision handling
+globs: ["**/urls.service.ts"]
+---
+
+# Code Generation
+
+## Algorithm
+1. Generate random alphanumeric string (length: `CODE_LENGTH` env var, default: 6)
+2. Character set: a-z, A-Z, 0-9 (62 characters)
+3. Use `crypto.randomInt()` for cryptographically secure randomness
+4. Check uniqueness: `SELECT COUNT(*) FROM urls WHERE code = $1;`
+5. If collision, retry (max 3 attempts)
+6. If all retries fail, throw InternalServerError
+
+## Implementation
+```typescript
+const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+let code = '';
+for (let i = 0; i < length; i++) {
+  code += chars[crypto.randomInt(0, chars.length)];
+}
+```
+
+## Collision Handling
+- Maximum 3 retry attempts
+- Database unique constraint prevents race conditions
+- If constraint violation, treat as collision and retry
+
+## Validation
+- Code must be exactly CODE_LENGTH characters
+- Only alphanumeric characters
+- Must be unique in database
+- Cannot be empty or null
