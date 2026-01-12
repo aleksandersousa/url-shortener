@@ -19,7 +19,7 @@
 
 ### Módulo Urls - Camada de Domínio
 
-- [ ] DTOs (CreateShortUrlDto, ShortUrlResponseDto)
+- [x] DTOs (CreateShortUrlDto, ShortUrlResponseDto)
 - [ ] Entidade Url
 - [ ] Utility: Validação de URL
 - [ ] Utility: Geração de código (com retry e colisão)
