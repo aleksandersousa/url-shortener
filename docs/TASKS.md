@@ -15,7 +15,7 @@
 
 - [x] Configuração de conexão PostgreSQL (TypeORM ou pg)
 - [x] Criação do schema (migration ou SQL script)
-- [ ] Validação de variáveis de ambiente no startup
+- [x] Validação de variáveis de ambiente no startup
 
 ### Módulo Urls - Camada de Domínio
 
