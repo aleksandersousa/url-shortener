@@ -14,7 +14,7 @@
 ### Banco de Dados
 
 - [x] Configuração de conexão PostgreSQL (TypeORM ou pg)
-- [ ] Criação do schema (migration ou SQL script)
+- [x] Criação do schema (migration ou SQL script)
 - [ ] Validação de variáveis de ambiente no startup
 
 ### Módulo Urls - Camada de Domínio
