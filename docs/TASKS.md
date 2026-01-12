@@ -25,7 +25,7 @@
 - [x] Utility: Validação de URL
 - [x] Utility: Geração de código (com retry e colisão)
 - [x] Repository (acesso ao banco de dados)
-- [ ] Service (regras de negócio)
+- [x] Service (regras de negócio)
 
 ### Módulo Urls - Camada de API
 
