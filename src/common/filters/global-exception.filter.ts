@@ -71,7 +71,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
         requestId,
         logContext
       );
-    } else {
+    } else if (request.path !== "/health") {
       this.logger.warn(`Client error: ${message}`, requestId, logContext);
     }
 
